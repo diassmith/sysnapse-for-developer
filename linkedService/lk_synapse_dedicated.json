@@ -1,0 +1,22 @@
+{
+	"name": "lk_synapse_dedicated",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDW",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=challengesynapseworkspace.sql.azuresynapse.net;Initial Catalog=challengedw;User ID=sqladminuser",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "lk_key_vault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "synapse-password"
+			}
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
