@@ -1,0 +1,98 @@
+{
+	"name": "pl_copy_data",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"preCopyScript": "truncate table dbo.DailySales",
+						"allowCopyCommand": true,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "StoreCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "StoreCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Date",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Date",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalSales",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TotalSales",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalAmount",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TotalAmount",
+									"type": "Int64"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_source_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_synapse_dedicated",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
