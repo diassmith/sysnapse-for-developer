@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "AzureKeyVault",
 		"typeProperties": {
-			"baseUrl": "https://akv-synapse-developer.vault.azure.net/"
+			"baseUrl": "https://akvsynapse-devloper.vault.azure.net/"
 		}
 	}
 }
