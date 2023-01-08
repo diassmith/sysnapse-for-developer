@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "sales-1.csv",
 				"folderPath": "dailysales",
 				"fileSystem": "sales"
 			},
