@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "\n\n-- TRUNCATE TABLE [dbo].[DailySales]\n\n\nSELECT COUNT(*) FROM [dbo].[DailySales]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "challengedw",
+				"poolName": "challengedw"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -30,7 +30,6 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"preCopyScript": "truncate table dbo.DailySales",
 						"writeBehavior": "Upsert",
 						"upsertSettings": {
 							"keys": [
