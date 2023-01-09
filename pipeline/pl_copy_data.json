@@ -21,7 +21,7 @@
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
 							"wildcardFolderPath": "dailysales",
-							"wildcardFileName": "*.csv",
+							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -31,7 +31,13 @@
 					"sink": {
 						"type": "SqlDWSink",
 						"preCopyScript": "truncate table dbo.DailySales",
-						"allowCopyCommand": true,
+						"writeBehavior": "Upsert",
+						"upsertSettings": {
+							"keys": [
+								"StoreCode"
+							],
+							"interimSchemaName": "dbo"
+						},
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
