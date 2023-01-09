@@ -1,0 +1,17 @@
+{
+	"name": "Script Copy table command",
+	"properties": {
+		"content": {
+			"query": "COPY INTO [dbo].[SalesCopyCommand]\n(StoreCode 1, Date 2, TotalSales 3, TotalAmount 4)\nFROM 'https://adlsfilestest.dfs.core.windows.net/sales/dailysales/*.csv'\nWITH (\n    FILE_TYPE = 'CSV',\n    CREDENTIAL = (IDENTITY='Shared Access Signature', SECRET='TOKEN'),\n    ENCODING = 'UTF8',\n    FIELDTERMINATOR = ',',\n    FIRSTROW=2\n)\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "challengedw",
+				"poolName": "challengedw"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
