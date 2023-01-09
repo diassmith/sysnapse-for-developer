@@ -2,13 +2,13 @@
 	"name": "Script Copy table command",
 	"properties": {
 		"content": {
-			"query": "COPY INTO SalesCopyCommand\n(StoreCode 1, Date 2, TotalSales 3, TotalAmount 4)\nFROM 'https://adlsfilestest.dfs.core.windows.net/sales/dailysales/*.csv'\nWITH (\n    FILE_TYPE = 'CSV',\n    CREDENTIAL = (IDENTITY='Shared Access Signature', SECRET='sp=rcwd&st=2023-01-09T00:57:04Z&se=2023-01-09T08:57:04Z&sip=163.116.224.115&sv=2021-06-08&sr=c&sig=OkweZjMKV4GXbvtbxqJtJnLQ04mtx3d1pKeK31TwvWY%3D'),\n    ENCODING = 'UTF8',\n    FIELDTERMINATOR = ',',\n    FIRSTROW=2\n)\n\n",
+			"query": "COPY INTO [dbo].[SalesCopyCommand]\n(StoreCode 1, Date 2, TotalSales 3, TotalAmount 4)\nFROM 'https://adlsfilestest.dfs.core.windows.net/sales/dailysales/*.csv'\nWITH (\n    FILE_TYPE = 'CSV',\n    CREDENTIAL = (IDENTITY='Shared Access Signature', SECRET='TOKEN'),\n    ENCODING = 'UTF8',\n    FIELDTERMINATOR = ',',\n    FIRSTROW=2\n)\n\n",
 			"metadata": {
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "master",
-				"poolName": "Built-in"
+				"databaseName": "challengedw",
+				"poolName": "challengedw"
 			},
 			"resultLimit": 5000
 		},
